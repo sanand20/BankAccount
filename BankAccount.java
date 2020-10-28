@@ -8,16 +8,36 @@ public class BankAccount {
     password = p;
     balance = 0;
   }
-  public int accountID (){
+  public int getAccountID (){
     return accountID;
   }
-  public double balance (){
+  public double getBalance (){
     return balance;
   }
-  public String password (){
-    return password;
+  public void setPassword (String newpass){
+    password = newpass;
   }
 
-
+  public boolean deposit(double amount){
+    if (amount<0){
+      return false;
+    }
+    else{
+      balance+= amount;
+      return true;
+    }
+  }
+  public boolean withdraw(double amount){
+    if (amount>balance || amount<0){
+      return false;
+    }
+    else {balance -= amount;
+    return true;}
+  }
+  public String toString(){
+    String ans = "";
+    ans+= Integer.toString(accountID) + "\t" + Double.toString(balance);
+    return ans;
+  }
 
 }
