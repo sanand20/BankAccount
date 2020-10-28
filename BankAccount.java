@@ -8,4 +8,16 @@ public class BankAccount {
     password = p;
     balance = 0;
   }
+  public int accountID (){
+    return accountID;
+  }
+  public double balance (){
+    return balance;
+  }
+  public String password (){
+    return password;
+  }
+
+
+
 }
