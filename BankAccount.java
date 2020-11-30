@@ -35,9 +35,21 @@ public class BankAccount {
     return true;}
   }
   public String toString(){
-    String ans = "";
-    ans+= Integer.toString(accountID) + "\t" + Double.toString(balance);
-    return ans;
+    return "#" +accountID + "\t$" + balance;
+  }
+  private boolean authenticate(String pwd){
+    return this.password.equals(password);
+  }
+  public boolean transferTo(BankAccount other, double amount, String password){
+    if (authenticate(password)&&withdraw(amount)){
+      if (other.deposit(amount)){
+        return true;
+      }
+      else {
+        System.out.println ("CRITICAL ERROR! $" + amount + "withdrawn from Account #" + getAccountID() +"Failed to add to Account" + other.getAccountID());
+      }
+    }
+    return false;
   }
 
 }
